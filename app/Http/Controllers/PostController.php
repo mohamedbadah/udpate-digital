@@ -45,16 +45,20 @@ class PostController extends Controller
         $validator = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'img' => 'required|image|max:2048|mimes:png,jpg'
+            'img' => 'image|max:2048|mimes:png,jpg'
         ]);
         if ($validator) {
             $post = new Post();
             $post->title = $request->title;
             $post->content = $request->content;
-            $ex = $request->file('img')->getClientOriginalExtension();
-            $new_image = 'post_' . time() . '_' . '.' . $ex;
-            $request->file('img')->move(public_path('upload/posts'), $new_image);
-            $post->image = $new_image;
+            $ex  = $request->file('img');
+            $new_image=" ";
+            if($ex!=null){
+                $ex = $request->file('img')->getClientOriginalExtension();
+                $new_image = 'post_' . time() . '_' . '.' . $ex;
+            $request->file('img')->move(public_path('upload/posts'), $new_image); 
+            }           
+            $new_image ?$post->image = $new_image:$new_image=$request->file('img');
             $post->created_by = Auth()->user()->name;
             $post->user_id = Auth()->user()->id;
             $post->category_id = $request->category;

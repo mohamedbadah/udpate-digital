@@ -1,0 +1,180 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color:#EEE;
+}
+nav{
+    height:150px;
+    width:100%;
+    background-image:url('../image/student2.jpeg');
+    background-repeat:repeat-y;
+    background-size: 100% 150px;
+    padding: 0px;
+    z-index: -1;
+}
+.navbar-brand{
+    margin-top: 0px;
+}
+.left-nav{
+  /* background-color: rgba(221, 240, 229, 0.76); */
+  background-color:#FFF;
+  margin-top: 0px;
+  height:100%;
+  box-shadow: 5px 0px 100px 23px rgb(253, 253, 253);
+}
+#clock{
+    font-size: 30px;
+}
+.logo-text{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px red;
+    color:rgb(50, 185, 145);
+    margin-left: 1%;
+}
+.navbar{
+   padding: 0px;
+}
+td{
+   max-width: 60px;
+   text-align: center;
+}
+.std{
+
+margin-top:-1%;
+padding: 0;
+height:100%;
+}
+.upcoming{
+margin-top:-1%;
+height:100%;
+}
+.std .one{
+min-height: 49%;
+max-height: 49%;
+overflow:hidden;
+}
+.std .one h6{
+text-align: center;
+
+}
+.std .two{
+min-height: 49%;
+max-height: 49%;
+overflow:hidden;
+}
+.upcoming .inner{
+border-style: solid;
+border-width: 1px;
+border-color:orange; 
+min-height: 100%;
+}
+.upcoming h5{
+background-color:orange;
+padding: 5px;
+width:100%;
+text-align: center;
+}
+.std .inner{
+border-style: solid;
+border-width: 1px;
+border-color:orange;
+}
+.std h5{
+background-color:orange;
+padding: 5px;
+width:100%;
+text-align: center;
+}
+.one img{
+margin-left: 3%;
+}
+.content{
+height:550px;
+position: relative;
+/* background:#F0F; */
+}
+.tab1{
+margin-top:-1%; 
+height:100%;
+overflow:hidden;
+}
+.ticker{
+position: absolute;
+background-color:#f00;
+color:#FFF;
+height:60px;
+left:0;
+bottom:0;
+display:flex;
+align-items: center;
+}
+.title{
+/* height: 60px; */
+/* display:flex;
+align-items:center; */
+/* padding:1px */
+position: absolute;
+right:0;
+background-color:red;
+height:100%;
+width:80px;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index: 222;
+}
+
+tbody{
+height: 100%;
+width:100%;
+position: relative;
+top: 0;
+left: 0;
+right: 0;
+z-index: -1;
+animation: marqueeTop 25s linear infinite;
+/* animation-direction: alternate; */
+} 
+.schoolMove{
+height: 100%;
+width:100%;
+position: relative;
+top: 0;
+left: 0;
+right: 0;
+z-index: -10;
+animation: school 30s linear infinite;
+/* animation-duration: 10s; */
+
+}
+tbody tr{
+width:100%;
+}
+@keyframes school {
+100%{
+transform:translateY(-100%);
+}
+}
+@keyframes marqueeTop{
+0% {
+top: 12%;
+}
+100% {
+/* top: -250%; */
+transform:translateY(-100%);
+}
+}
+.borders{
+border-left: 5px solid #000;
+font-size: 60px;
+margin-top:4px;
+margin-left: 8%;
+position: absolute;
+height:60%;
+top:15%;
+}
+@media (min-width:2000px) {
+    
+}

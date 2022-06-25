@@ -31,6 +31,7 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/summernote/summernote-bs4.min.css') }}">
     {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
 
@@ -268,6 +269,7 @@
     {{-- axios --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ asset('dashboard/plugins/toastr/toastr.min.js') }}"></script>
     @yield('scripts')
 </body>
 

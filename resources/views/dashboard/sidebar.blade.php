@@ -330,15 +330,7 @@
 
             <li class="nav-header">Settings</li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-edit"></i>
-                    <p>
-                        Edit Profile
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('changePass')}}" class="nav-link">
                     <i class="fas fa-lock"></i>
                     <p>
                         Change Password

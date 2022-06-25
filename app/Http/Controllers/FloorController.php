@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\Floor;
 use App\Models\Building;
 use Illuminate\Http\Request;
@@ -44,6 +45,9 @@ class FloorController extends Controller
             'name' => 'required|string|max:255',
             'raspberry_pi_ip_address' => 'required|string|max:255',
             'building_id' => 'required|exists:buildings,id',
+        ],[
+            'name.required'=>'الاسم مطلوب',
+            'raspberry_pi_ip_address.required'=>'ip مطلوب'
         ]);
 
         $floor = new Floor();
@@ -51,9 +55,18 @@ class FloorController extends Controller
         $floor->description = $request->description;
         $floor->building_id = $request->building_id;
         $floor->raspberry_pi_ip_address = $request->raspberry_pi_ip_address;
-        $floor->save();
-        return redirect()->route('floors.index')->with('success', 'Floor created successfully')
-            ->with('type', 'success');
+        $isSave=$floor->save();
+        if($isSave){
+            if($request->createFloor=="createFloor"){
+                return redirect()->route('buildings.show',$floor->building_id)->with('success', 'Floor created successfully')
+                ->with('type', 'success');  
+            }else{
+                return redirect()->route('floors.index')->with('success', 'Floor created successfully')
+                ->with('type', 'success');
+            }
+            
+        }
+        
     }
 
     /**
@@ -67,7 +80,6 @@ class FloorController extends Controller
         $floor_Rooms=$floor->rooms;
        
         return view('dashboard.floors.floor_room', compact('floor','floor_Rooms'));
-        // dd($floor_Rooms);
     }
 
     /**
@@ -94,7 +106,6 @@ class FloorController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'raspberry_pi_ip_address' => 'required|string|max:255',
-            'description' => 'required',
             'building_id' => 'required|exists:buildings,id',
         ]);
 
@@ -105,6 +116,9 @@ class FloorController extends Controller
             'raspberry_pi_ip_address' => $request->raspberry_pi_ip_address,
         ]);
         $floor->save();
+        if($request->createFloor=="createFloor"){
+            return redirect()->route('buildings.show',$floor->building_id)->with('success', 'Floor updated successfully')->with('type', 'success'); 
+        }
         return redirect()->route('floors.index')->with('success', 'Floor updated successfully')->with('type', 'success');
     }
 
@@ -135,5 +149,10 @@ class FloorController extends Controller
     {
         $floor = Floor::where('id',$id)->first();
         return view('dashboard.floors.createRoom',compact('floor'));
+    }
+    public function editRoom($id)
+    {
+        $room = Room::where('id',$id)->first();
+        return view('dashboard.floors.editRoom',compact('room'));
     }
 }

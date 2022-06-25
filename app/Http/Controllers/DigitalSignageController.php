@@ -15,7 +15,7 @@ class DigitalSignageController extends Controller
 {
     public function index($build, $floors)
     {
-        $floor = Floor::where('raspberry_pi_ip_address', $floors)->first();
+        $floor = Floor::where('name', $floors)->first();
         $posts=Post::all();
         $building = Building::where('name', $build)->first();
         $collages = Collage_time::all();

@@ -17,10 +17,10 @@
             @endif
 
             <div class="card-header">
-                <h3 class="card-title"><b>{{ $floor->name }}</b> Floors</h3>
+                <h3 class="card-title">Floor <b class="text text-danger">{{ $floor->name }}</b> & building <b class="text text-danger">{{$floor->building->name }}</b></h3>
 
-                <a href="{{ route('floors.create') }}" class="btn btn-success float-right"><i class="fas fa-plus"></i>
-                    Add New Floor</a>
+                <a href="{{ route('createRoom',$floor->id) }}" class="btn btn-success float-right"><i class="fas fa-plus"></i>
+                    Add New Room</a>
                 <a href="{{ route('buildings.index') }}" class="btn btn-info float-right mr-2">Back</a>
 
             </div>
@@ -33,7 +33,6 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Building</th>
                             <th>Updated at</th>
                             <th>Settings</th>
 
@@ -50,7 +49,7 @@
                                 <td> {{ $floor_Room->updated_at }} </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ route('rooms.edit', $floor_Room->id) }}" class="btn btn-info">
+                                        <a href="{{ route('editRoom', $floor_Room->id) }}" class="btn btn-info">
                                             <i class="far fa-edit"></i>
                                         </a>
                                         <a href="#" class="btn btn-danger"
@@ -60,6 +59,8 @@
                                     </div>
                                 </td>
                             </tr>
+                            
+            
                         @empty
                             <tr>No data Found</tr>
                         @endforelse

@@ -60,8 +60,14 @@ class RoomController extends Controller
             $room->description=$request->description;
             $room->floor_id = $request->floor;
             $room->save();
-            return redirect()->route('rooms.index')->with('success', 'Floor created successfully')
+            if($request->hidden=="createRoom"){
+                return redirect()->route('floors.show',$room->floor_id)->with('success', 'Floor created successfully')
                 ->with('type', 'success');
+            }else{
+                return redirect()->route('rooms.index')->with('success', 'Floor created successfully')
+                ->with('type', 'success');
+            }
+            
         }
     }
 
@@ -110,6 +116,10 @@ class RoomController extends Controller
             $room->name = $request->name;
             $room->floor_id = $request->floor;
             $room->save();
+            if($request->editRoom=="editRoom"){
+                return redirect()->route('floors.show',$room->floor_id)->with('success', 'Floor created successfully')
+                ->with('type', 'success');
+            }
             return redirect()->route('rooms.index')->with('success', 'Floor created successfully')
                 ->with('type', 'success');
         }

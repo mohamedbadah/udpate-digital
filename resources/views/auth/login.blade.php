@@ -25,7 +25,7 @@
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <a href="#" class="h1">Digital <span>Sign</span>age <img
-                        src="{{ asset('assets-moraSoft/img/brand/favicon.png') }}" class="h1"
+                        src="{{ asset('project/image/collage.png') }}" class="h1"
                         alt="logo"></a>
             </div>
             <div class="card-body">

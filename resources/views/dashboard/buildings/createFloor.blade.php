@@ -12,6 +12,7 @@
             <div class="card-header">
                 <h3 class="card-title">Create Floors</h3>
             </div>
+            @include('errors.errors')
             <!-- /.card-header -->
             <!-- form start -->
             <form id="create-form" action="{{ route('floors.store') }} " method="POST">
@@ -46,6 +47,7 @@
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </div>
+                <input type="hidden" name="createFloor" value="createFloor">
                 <!-- /.card-body -->
             </form>
         </div>

@@ -38,11 +38,10 @@
                     <div class="form-group  mt-3">
                         <label>Buildings </label>
                         <select class="form-control" name="building_id" style="width: 100%;" data-select2-id="1"
-                            tabindex="-1" aria-hidden="true">
-                            @foreach ($buildings as $building)
-                                <option value="{{ $building->id }}">{{ $building->name }}</option>
-                            @endforeach
+                            tabindex="-1" aria-hidden="true">  
+                                <option value="{{ $floor->building->id }}">{{ $floor->building->name }}</option>
                         </select>
+                        <input type="hidden" name="editFloor">
                     </div>
 
 

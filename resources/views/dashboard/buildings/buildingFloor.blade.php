@@ -19,7 +19,7 @@
             <div class="card-header">
                 <h3 class="card-title"><b>{{ $building->name }}</b> Floors</h3>
 
-                <a href="{{ route('floors.create') }}" class="btn btn-success float-right"><i class="fas fa-plus"></i>
+                <a href="{{ route('createFloor',$building->id) }}" class="btn btn-success float-right"><i class="fas fa-plus"></i>
                     Add New Floor</a>
                 <a href="{{ route('buildings.index') }}" class="btn btn-info float-right mr-2">Back</a>
 
@@ -59,8 +59,8 @@
                                 <td> {{ $buildingFloor->updated_at }} </td>
                                 <td>
                                     <div class="btn-group">
-                                        {{-- <a href="{{ route('building.floors.edit', $buildingFloor->id) }}" class="btn btn-info"> --}}
-                                        <a href="#" class="btn btn-info">
+                                        {{-- <a href="{{ route('buildings.edit', $buildingFloor->id) }}" class="btn btn-info"> --}}
+                                        <a href="{{ route('editFloor', $buildingFloor->id) }}" class="btn btn-info">
                                             <i class="far fa-edit"></i>
                                         </a>
                                         <a href="#" class="btn btn-danger"

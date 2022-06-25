@@ -30,7 +30,7 @@
                             <label for="inputName" class="control-label">floor in building</label>
                             <select name="building" class="form-control SlectBox">
                                 <!--placeholder-->
-                                <option value="" selected disabled>حدد المبنى</option>
+                                {{-- <option value="" selected disabled>حدد المبنى</option> --}}
                                 <option selected value="{{ $room->floor->building->id }}">
                                     {{ $room->floor->building->name }}</option>
                                 @foreach ($buildings as $building)
@@ -69,7 +69,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('select[name="building"]').on('change', function() {
+            $('select[name="building"]').on('click', function() {
                 var buildingId = $(this).val();
                 if (buildingId) {
                     $.ajax({

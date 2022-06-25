@@ -1,7 +1,7 @@
 @extends('dashboard.master1')
-@section('title', 'Admins')
-@section('big_title', 'Admins Page')
-@section('main_page', 'Admins')
+@section('title', 'Posts')
+@section('big_title', 'posts Page')
+@section('main_page', 'Posts')
 @section('sub_page', 'Create')
 @section('head')
    
@@ -15,7 +15,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Create Admin</h3>
+                <h3 class="card-title">Create Posts</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">title</label>
-                        <input type="text" class="form-control" id="name" name="title" value="{{ old('name') }}"
+                        <input type="text" class="form-control" id="name" name="title" value="{{ old('title') }}"
                             placeholder="Enter Name">
                         @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <textarea rows="4" , cols="70" id="content" name="content">content</textarea>
+                        <textarea rows="4" , cols="70" id="content" name="content" value="{{ old('content') }}">content</textarea>
                     </div>
                     @error('content')
                         <div class="alert alert-danger">{{ $message }}</div>

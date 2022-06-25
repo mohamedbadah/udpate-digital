@@ -11,9 +11,9 @@
                  <!-- small box -->
                  <div class="small-box bg-info">
                      <div class="inner">
-                         <h3>150</h3>
+                         <h3>{{$post->count()}}</h3>
 
-                         <p>New Orders</p>
+                         <p>post</p>
                      </div>
                      <div class="icon">
                          <i class="ion ion-bag"></i>
@@ -26,9 +26,14 @@
                  <!-- small box -->
                  <div class="small-box bg-success">
                      <div class="inner">
-                         <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                         <p>Bounce Rate</p>
+                        <?php $a=[]; ?>
+                        @foreach ($post_e as $p)
+                        @if (!is_null($p->category))
+                        <?php array_push($a,$p->category->name) ?>
+                        @endif 
+                        @endforeach
+                        <h3>{{count($a)}}</h3>
+                         <p>post event</p>
                      </div>
                      <div class="icon">
                          <i class="ion ion-stats-bars"></i>
@@ -40,10 +45,15 @@
              <div class="col-lg-3 col-6">
                  <!-- small box -->
                  <div class="small-box bg-warning">
-                     <div class="inner">
-                         <h3>44</h3>
-
-                         <p>User Registrations</p>
+                    <div class="inner">
+                        <?php $a=[]; ?>
+                        @foreach ($post_n as $p)
+                        @if (!is_null($p->category))
+                        <?php array_push($a,$p->category->name) ?>
+                        @endif 
+                        @endforeach
+                        <h3>{{count($a)}}</h3>
+                         <p>post new</p>
                      </div>
                      <div class="icon">
                          <i class="ion ion-person-add"></i>
@@ -55,10 +65,15 @@
              <div class="col-lg-3 col-6">
                  <!-- small box -->
                  <div class="small-box bg-danger">
-                     <div class="inner">
-                         <h3>65</h3>
-
-                         <p>Unique Visitors</p>
+                    <div class="inner">
+                        <?php $a=[]; ?>
+                        @foreach ($post_n as $p)
+                        @if (!is_null($p->category))
+                        <?php array_push($a,$p->category->name) ?>
+                        @endif 
+                        @endforeach
+                        <h3>{{count($a)}}</h3>
+                         <p>post unvirsty</p>
                      </div>
                      <div class="icon">
                          <i class="ion ion-pie-graph"></i>

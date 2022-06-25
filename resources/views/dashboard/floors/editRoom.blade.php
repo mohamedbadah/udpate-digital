@@ -16,46 +16,58 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form id="create-form" method="POST" action="{{ route('rooms.store') }}">
+            <form id="create-form" method="POST" action="{{ route('rooms.update', $room->id) }}">
                 @csrf
+                @method('put')
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">room Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $room->name }}"
                             placeholder="Enter Room Name">
-                    </div>
-                    <div class="form-floating">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" placeholder="Description" name="description"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <label for="inputName" class="control-label"> building</label>
+                            <label for="inputName" class="control-label">floor in building</label>
                             <select name="building" class="form-control SlectBox">
                                 <!--placeholder-->
-                                    <option selected value="{{ $floor->building->id }}">
-                                        {{ $floor->building->name }}
-                                    </option>
+                                {{-- <option value="" selected disabled>حدد المبنى</option> --}}
+                                <option selected value="{{ $room->floor->building->id }}">
+                                    {{ $room->floor->building->name }}</option>
+                                {{-- @foreach ($buildings as $building)
+                                    @if ($building->id != $room->floor->building->id)
+                                        <option value="{{ $building->id }}">
+                                            {{ $building->name }}
+                                        </option>
+                                    @endif
+                                @endforeach --}}
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label for="inputName" class="control-label">floor in building</label>
                             <select name="floor" class="form-control SlectBox">
-                                <option selected value="{{ $floor->id }}">
-                                    {{ $floor->name }}
-                                </option>
+                                <option value="{{ $room->floor->id }}">{{ $room->floor->name }}</option>
                             </select>
                         </div>
-                        <input type="hidden" name="hidden" value="createRoom">
                     </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
+                <input type="hidden" name="editRoom" value="editRoom">
         </div>
         <!-- /.card-body -->
         </form>
     </div>
     <!-- /.card -->
+
     </div>
+
+
+@endsection
+
+
+
+@section('scripts')
+    <script>
+    </script>
 @endsection

@@ -122,4 +122,9 @@ class BuildingController extends Controller
         $building = Building::where('id',$id)->first();
         return view('dashboard.buildings.createFloor',compact('building'));
     }
+    public function editFloor($id)
+    {
+        $floor = Floor::where('id',$id)->first();
+        return view('dashboard.buildings.editFloor',compact('floor'));
+    }
 }
