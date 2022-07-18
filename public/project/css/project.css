@@ -137,15 +137,18 @@ z-index: -1;
 animation: marqueeTop 25s linear infinite;
 /* animation-direction: alternate; */
 } 
+.upRoll{
+    height:100%;
+}
 .schoolMove{
-height: 100%;
 width:100%;
 position: relative;
 top: 0;
 left: 0;
 right: 0;
 z-index: -10;
-animation: school 30s linear infinite;
+animation: school 25s linear infinite;
+animation-delay: 3s;
 /* animation-duration: 10s; */
 
 }
@@ -153,9 +156,21 @@ tbody tr{
 width:100%;
 }
 @keyframes school {
+
 100%{
-transform:translateY(-100%);
+    transform:translateY(-100%);
+
+        
+    }
+/* 50%{
+transform:translateY(-50%);
+
 }
+75%{
+    transform:translateY(-75%);
+    
+    } */
+
 }
 @keyframes marqueeTop{
 0% {

@@ -17,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = User::all();
+        $admins = User::withCount('permissions')->get();
 
         return view('dashboard.admins.index', compact('admins'));
     }

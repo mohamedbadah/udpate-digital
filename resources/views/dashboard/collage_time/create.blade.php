@@ -158,7 +158,7 @@
             });
         });
         $(document).ready(function() {
-            $('select[name="floor"]').on('click', function() {
+            $('select[name="floor"]').on('change', function() {
                 var floorId = $(this).val();
                 if (floorId) {
                     $.ajax({

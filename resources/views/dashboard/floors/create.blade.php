@@ -5,7 +5,7 @@
 @section('sub_page', 'Create')
 
 @section('content')
-
+@include('errors.errors')
     <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-primary">
@@ -38,6 +38,7 @@
                         <label>Buildings </label>
                         <select class="form-control" name="building_id" style="width: 100%;" data-select2-id="1"
                             tabindex="-1" aria-hidden="true">
+                            <option>choose</option>
                             @foreach ($buildings as $building)
                                 <option value="{{ $building->id }}">{{ $building->name }}</option>
                             @endforeach

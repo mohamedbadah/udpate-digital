@@ -45,9 +45,6 @@ class FloorController extends Controller
             'name' => 'required|string|max:255',
             'raspberry_pi_ip_address' => 'required|string|max:255',
             'building_id' => 'required|exists:buildings,id',
-        ],[
-            'name.required'=>'الاسم مطلوب',
-            'raspberry_pi_ip_address.required'=>'ip مطلوب'
         ]);
 
         $floor = new Floor();

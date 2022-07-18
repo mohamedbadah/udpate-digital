@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'حسابك موقوف مؤقتا',
+    'failed' => 'المتسخدم غير موجود',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 

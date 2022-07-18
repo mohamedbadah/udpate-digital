@@ -31,6 +31,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>permission</th>
                             <th>Status</th>
                             {{-- <th>Roles</th> --}}
                             <th>Created at</th>
@@ -45,6 +46,10 @@
 
                                 <td>{{ $admin->name }}</td>
                                 <td>{{ $admin->email }}</td>
+                                <td> <a href="{{ route('user.permission.index', $admin->id) }}"
+                                    class="btn btn-primary">({{ $admin->permissions_count }})
+                                    permission</a>
+                            </td>
                                 <td> <span
                                         class="badge @if ($admin->active) bg-success @else bg-danger @endif">{{ $admin->status }}</span>
                                 </td>

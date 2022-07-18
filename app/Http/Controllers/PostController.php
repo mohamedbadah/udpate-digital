@@ -45,7 +45,8 @@ class PostController extends Controller
         $validator = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'img' => 'image|max:2048|mimes:png,jpg'
+            'img' => 'image|max:2048|mimes:png,jpg',
+            'category'=>'required'
         ]);
         if ($validator) {
             $post = new Post();

@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ 5 * $current + $i }}</td>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ substr("$post->content", 0, 100) }}</td>
+                                <td>{{ substr("$post->content", 0, 10) }}</td>
                                 <td><img class="img-circle img-bordered-sm" width="100" height="100"
                                         src="{{ asset('upload/posts/' . $post->image) }}" alt="post Image"></td>
                                 <td>{{ $post->category->name }}</td>

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="180">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('project/css/project.css')}}">
-    <title>Document</title>
+    <title>digital signage</title>
 </head>
 <body onload="startTime()">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -69,8 +70,7 @@
                     <img class="mt-4" src="{{asset("upload/posts/$post->image")}}" height="125px" width="125px">
                     </div>
                     <div class="col-sm-7">
-                    <span>{{$post->content}}
-                    </span>
+                    <span>{{$post->content}}</span>
                     </div>
                     </div> 
                 @endif
@@ -80,16 +80,28 @@
         </div>
         <div class="inner mt-2 two">
             <h5>School Messages</h5>
-            @foreach ($posts as $post)
-                @if ($post->category->name=="unvirsty")
-                <div style="text-align: center;" class="p-3 upRoll">
+            {{-- @foreach ($posts as $post) --}}
+            <div class="schoolMove">
+            @for ($i=count($posts)-1;$i>=1;$i--)
+            @if ($posts[$i]->category->name=="unvirsty")
+            <div style="text-align: center;" class="p-3 upRoll ">
+            <div>
+            <h3>{{$posts[$i]->title}}</h3>
+            <div>{{$posts[$i]->content}}</div>
+                
+               </div></div> 
+            @endif  
+            @endfor
+        </div>
+                {{-- @if ($post->category->name=="unvirsty")
+                <div style="text-align: center;" class="p-3 upRoll schoolMove">
                 <div class="schoolMove">
                 <h3>{{$post->title}}</h3>
                 <div>{{$post->content}}</div>
                     
                    </div></div> 
-                @endif
-            @endforeach
+                @endif --}}
+            {{-- @endforeach --}}
             
                      
         </div>

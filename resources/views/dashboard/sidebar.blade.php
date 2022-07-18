@@ -31,60 +31,38 @@
             </li>
 
 
-            <li class="nav-header">Roles & Permissions </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-user-tag"></i>
-                    <p>
-                        Roles
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-plus-square"></i>
-                            <p>create</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-list-ul"></i>
-                            <p>Index</p>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-key"></i>
-                    <p>
-                        Permissions
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-list-ul"></i>
-                            <p>Index</p>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
+            <li class="nav-header">Permissions </li>
+        @can('permission')
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fas fa-user-tag"></i>
+                <p>
+                    permission
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
 
 
+                <li class="nav-item">
+                    <a href="{{route('permission.create')}}" class="nav-link">
+                        <i class="far fa-plus-square"></i>
+                        <p>create</p>
+                    </a>
+                </li>
 
+                <li class="nav-item">
+                    <a href="{{route('permission.index')}}" class="nav-link">
+                        <i class="fas fa-list-ul"></i>
+                        <p>Index</p>
+                    </a>
+                </li>
 
+            </ul>
+        </li>
+        @endcan 
             <li class="nav-header">Human Resources</li>
-
+            @can('user')
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fas fa-user-tie"></i>
@@ -111,9 +89,10 @@
 
                 </ul>
             </li>
+            @endcan 
             <li class="nav-header">Content Management</li>
+            @can('collage-time')
             <li class="nav-item">
-
                 <a href="#" class="nav-link">
                     <i class="fas fa-map-marker-alt"></i>
                     <p>
@@ -139,7 +118,9 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> 
+            @endcan 
+            @can('image')
             <li class="nav-item">
 
                 <a href="#" class="nav-link">
@@ -167,8 +148,9 @@
                     </li>
 
                 </ul>
-            </li>
-
+            </li>  
+            @endcan     
+            @can('category')
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fas fa-layer-group"></i>
@@ -197,7 +179,9 @@
                     </li>
 
                 </ul>
-            </li>   
+            </li>  
+            @endcan     
+            @can('post')
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fas fa-tasks"></i>
@@ -229,39 +213,44 @@
 
                 </ul>
 
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-tasks"></i>
-                    <p>
-                        builing
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
+            </li>  
+            @endcan   
+          @can('building')
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fas fa-tasks"></i>
+                <p>
+                    builing
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
 
-                    <li class="nav-item">
-                        <a href="{{ route('buildings.create') }}" class="nav-link">
-                            <i class="far fa-plus-square"></i>
-                            <p>create</p>
-                        </a>
-                    </li>
-
-
-
-
-                    <li class="nav-item">
-                        <a href="{{ route('buildings.index') }}" class="nav-link">
-                            <i class="fas fa-list-ul"></i>
-                            <p>Index</p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="{{ route('buildings.create') }}" class="nav-link">
+                        <i class="far fa-plus-square"></i>
+                        <p>create</p>
+                    </a>
+                </li>
 
 
 
-                </ul>
 
-            </li>
+                <li class="nav-item">
+                    <a href="{{ route('buildings.index') }}" class="nav-link">
+                        <i class="fas fa-list-ul"></i>
+                        <p>Index</p>
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+        </li> 
+          @endcan
+            
+            @can('floor')
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fas fa-tasks"></i>
@@ -294,6 +283,8 @@
                 </ul>
 
             </li>
+            @endcan
+            @can('room')
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fas fa-tasks"></i>
@@ -325,9 +316,8 @@
 
                 </ul>
 
-            </li>
-
-
+            </li> 
+            @endcan
             <li class="nav-header">Settings</li>
             <li class="nav-item">
                 <a href="{{route('changePass')}}" class="nav-link">
